@@ -1,22 +1,22 @@
 {
-  "name": "node-inspect",
+  "name": "trepan-ni",
   "version": "1.11.5",
-  "description": "Node Inspect",
+  "description": "Trepan debugger for Node Inspect",
   "license": "MIT",
   "main": "lib/_inspect.js",
   "bin": "cli.js",
-  "homepage": "https://github.com/nodejs/node-inspect",
+  "homepage": "https://github.com/rocky/node-inspect",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/nodejs/node-inspect"
+    "url": "git+ssh://git@github.com/rocky/node-inspect"
   },
   "bugs": {
-    "url": "https://github.com/nodejs/node-inspect/issues"
+    "url": "https://github.com/rocky/node-inspect/issues"
   },
   "scripts": {
     "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
     "test": "tap test",
-    "posttest": "nlm verify"
+    "posttest-notyet": "nlm verify"
   },
   "nlm": {
     "license": {
@@ -32,8 +32,8 @@
     "tap": "^10.7.0"
   },
   "author": {
-    "name": "Jan Krems",
-    "email": "jan.krems@gmail.com"
+    "name": "Rocky Bernsetin",
+    "email": "rb@dustyfeet.com"
   },
   "files": [
     "*.js",
