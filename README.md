@@ -1,24 +1,20 @@
-# `node-inspect`
+# trepan-ni
 
+Until we publish this to npmjs.org run from git.
+
+
+## Setup:
 ```bash
-npm install --global node-inspect
+$ npm install
 ```
 
-For the old V8 debugger protocol,
-node has two options:
+## Run
 
-1. `node --debug <file>`: Start `file` with remote debugging enabled.
-2. `node debug <file>`: Start an interactive CLI debugger for `<file>`.
-
-But for the Chrome inspector protocol,
-there's only one: `node --inspect <file>`.
-
-This project tries to provide the missing second option
-by re-implementing `node debug` against the new protocol.
+Until we have something in npmjs.org:
 
 ```
-Usage: node-inspect script.js
-       node-inspect <host>:<port>
+Usage: ./cli.js script.js
+       ./cli.js <host>:<port>
 ```
 
 #### References
