@@ -1,7 +1,7 @@
 # trepan-ni
 
-Until we publish this to npmjs.org run from git.
-
+A gdb-like debugger in the trepan debugger family. This code
+is based on (and largely made up of) the nodejs debugger.
 
 ## Setup:
 ```bash
@@ -10,11 +10,9 @@ $ npm install
 
 ## Run
 
-Until we have something in npmjs.org:
-
 ```
-Usage: ./cli.js script.js
-       ./cli.js <host>:<port>
+Usage: trepan-ni script.js
+       trepan-ni <host>:<port>
 ```
 
 #### References
