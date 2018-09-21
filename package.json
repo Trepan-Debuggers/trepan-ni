@@ -1,17 +1,17 @@
 {
   "name": "trepan-ni",
-  "version": "1.11.5",
-  "description": "Trepan debugger for Node Inspect",
+  "version": "2.0.0",
+  "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
   "license": "MIT",
   "main": "lib/_inspect.js",
   "bin": "cli.js",
-  "homepage": "https://github.com/rocky/node-inspect",
+  "homepage": "https://github.com/rocky/trepan-ni",
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/rocky/node-inspect"
+    "url": "git+ssh://git@github.com/rocky/trepan-ni"
   },
   "bugs": {
-    "url": "https://github.com/rocky/node-inspect/issues"
+    "url": "https://github.com/rocky/trepan-ni/issues"
   },
   "scripts": {
     "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
@@ -27,9 +27,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "eslint": "^3.10.2",
+    "eslint": "^3.19.0",
     "nlm": "^3.0.0",
-    "tap": "^10.7.0"
+    "tap": "^10.7.3"
   },
   "author": {
     "name": "Rocky Bernsetin",

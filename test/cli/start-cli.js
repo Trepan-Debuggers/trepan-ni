@@ -24,7 +24,7 @@ function startCLI(args, flags = []) {
   function bufferOutput(chunk) {
     if (isFirstStdoutChunk) {
       isFirstStdoutChunk = false;
-      outputBuffer.push(chunk.replace(/^debug>\s*/, ''));
+      outputBuffer.push(chunk.replace(/^(trepan-ni)\s*/, ''));
     } else {
       outputBuffer.push(chunk);
     }
@@ -95,7 +95,7 @@ function startCLI(args, flags = []) {
     },
 
     waitForPrompt(timeout = 2000) {
-      return this.waitFor(/>\s+$/, timeout);
+      return this.waitFor(/\(trepan-ni\)\s+$/, timeout);
     },
 
     waitForInitialBreak(timeout = 2000) {

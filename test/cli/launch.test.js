@@ -14,7 +14,7 @@ test('custom port', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(cli.output, '(trepan-ni)', 'prints a prompt');
       t.match(
         cli.output,
         new RegExp(`< Debugger listening on [^\n]*${CUSTOM_PORT}`),
@@ -34,7 +34,7 @@ test('random port', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(cli.output, '(trepan-ni)', 'prints a prompt');
       t.match(
         cli.output,
         /< Debugger listening on /,
@@ -54,7 +54,7 @@ test('random port with --inspect-port=0', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(cli.output, '(trepan-ni)', 'prints a prompt');
       t.match(
         cli.output,
         /< Debugger listening on /,
@@ -73,7 +73,7 @@ test('examples/three-lines.js', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => {
-      t.match(cli.output, 'debug>', 'prints a prompt');
+      t.match(cli.output, '(trepan-ni)', 'prints a prompt');
       t.match(
         cli.output,
         /< Debugger listening on [^\n]*9229/,
