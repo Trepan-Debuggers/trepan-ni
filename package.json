@@ -16,7 +16,7 @@
   "scripts": {
     "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
     "test": "tap test",
-    "posttest-notyet": "nlm verify"
+    "posttest": "nlm verify"
   },
   "nlm": {
     "license": {
@@ -28,7 +28,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^3.19.0",
-    "nlm": "^3.0.0",
+    "nlm": "^3.0.1",
     "tap": "^10.7.3"
   },
   "author": {
