@@ -11,3 +11,5 @@ deploy:
   'on':
     branch: master
     node: '6.8'
+script:
+- make lint
