@@ -2,22 +2,37 @@
   "name": "trepan-ni",
   "version": "2.0.1",
   "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
+  "author": {
+    "name": "Rocky Bernsetin",
+    "email": "rb@dustyfeet.com"
+  },
   "license": "MIT",
   "main": "lib/_inspect.js",
   "bin": "cli.js",
-  "homepage": "https://github.com/rocky/trepan-ni",
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/rocky/trepan-ni"
-  },
   "bugs": {
     "url": "https://github.com/rocky/trepan-ni/issues"
   },
-  "scripts": {
-    "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
-    "test": "tap test",
-    "posttest": "nlm verify"
+  "dependencies": {
+    "command-line-args": "^5.0.2",
+    "consolehighlighter": "^0.1.5",
+    "marked": "^0.3.17",
+    "marked-terminal": "^1.6.1"
   },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "nlm": "^3.3.1",
+    "tap": "^12.0.1"
+  },
+  "files": [
+    "*.js",
+    "lib"
+  ],
+  "homepage": "https://github.com/rocky/trepan-ni",
+  "keywords": [
+    "debugger",
+    "gdb",
+    "trepan"
+  ],
   "nlm": {
     "license": {
       "files": [
@@ -25,21 +40,16 @@
       ]
     }
   },
-  "dependencies": {},
-  "devDependencies": {
-    "eslint": "^3.19.0",
-    "nlm": "^3.0.1",
-    "tap": "^10.7.3"
-  },
-  "author": {
-    "name": "Rocky Bernsetin",
-    "email": "rb@dustyfeet.com"
-  },
-  "files": [
-    "*.js",
-    "lib"
-  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/rocky/trepan-ni"
+  },
+  "scripts": {
+    "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
+    "test": "tap test",
+    "posttest": "nlm verify"
   }
 }
