@@ -1,9 +1,9 @@
 {
   "name": "trepan-ni",
-  "version": "2.0.3",
+  "version": "2.0.5",
   "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
   "author": {
-    "name": "Rocky Bernsetin",
+    "name": "Rocky Bernsetein",
     "email": "rb@dustyfeet.com"
   },
   "license": "MIT",
