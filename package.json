@@ -1,6 +1,6 @@
 {
   "name": "trepan-ni",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
   "author": {
     "name": "Rocky Bernsetin",
@@ -13,7 +13,6 @@
     "url": "https://github.com/rocky/trepan-ni/issues"
   },
   "dependencies": {
-    "command-line-args": "^5.0.2",
     "consolehighlighter": "^0.1.5",
     "marked": "^0.3.17",
     "marked-terminal": "^1.6.1"

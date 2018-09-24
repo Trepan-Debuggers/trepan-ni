@@ -4,10 +4,13 @@ node_js:
 before_deploy:
   - git config --global user.email "rb@dustyfeet.com"
   - git config --global user.name "Rocky Bernstein"
-deploy:
-  provider: script
-  script: ./node_modules/.bin/nlm release
-  skip_cleanup: true
-  'on':
-    branch: master
-    node: '6.8'
+# deploy:
+#   provider: script
+#   script: ./node_modules/.bin/nlm release
+#   skip_cleanup: true
+#   'on':
+#     branch: master
+#     node: '6.8'
+
+script:
+- eslint --rulesdir=tools/eslint-rules lib test

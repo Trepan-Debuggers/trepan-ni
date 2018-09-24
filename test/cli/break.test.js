@@ -80,7 +80,7 @@ test('stepping through breakpoints', (t) => {
         [5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
         'prints 5 lines before and after');
     })
-    .then(() => cli.command('list(2)'))
+    .then(() => cli.command('list(0, 2)'))
     .then(() => {
       t.match(cli.output, '>10 debugger;', 'prints and marks current line');
       t.strictDeepEqual(
