@@ -13,7 +13,7 @@ test('examples/empty.js', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('help'))
+    .then(() => cli.command('help()'))
     .then(() => {
       t.match(cli.output, /run, restart, r\s+/m);
     })
