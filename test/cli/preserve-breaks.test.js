@@ -24,8 +24,8 @@ test('run after quit / restart', (t) => {
     .then(() => cli.command('sb(3)'))
     .then(() => cli.command('breakpoints'))
     .then(() => {
-      t.match(cli.output, `#0 ${script}:2`);
-      t.match(cli.output, `#1 ${script}:3`);
+      t.match(cli.output, `#1 ${script}:2`);
+      t.match(cli.output, `#2 ${script}:3`);
     })
     .then(() => cli.stepCommand('c')) // hit line 2
     .then(() => cli.stepCommand('c')) // hit line 3
@@ -52,11 +52,11 @@ test('run after quit / restart', (t) => {
         // properly resolved yet when we reach this point.
         // Eventually that should be figured out but for now we don't want
         // to fail builds because of it.
-        t.match(cli.output, /#0 [^\n]+three-lines\.js\$?:2/);
-        t.match(cli.output, /#1 [^\n]+three-lines\.js\$?:3/);
+        t.match(cli.output, /#[0-9]+ [^\n]+three-lines\.js\$?:2/);
+        t.match(cli.output, /#[0-9]* [^\n]+three-lines\.js\$?:3/);
       } else {
-        t.match(cli.output, `#0 ${script}:2`);
-        t.match(cli.output, `#1 ${script}:3`);
+        t.match(cli.output, `#1 ${script}:2`);
+        t.match(cli.output, `#2 ${script}:3`);
       }
     })
     .then(() => cli.quit())
