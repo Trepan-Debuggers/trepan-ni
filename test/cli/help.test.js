@@ -15,7 +15,7 @@ test('examples/empty.js', (t) => {
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('help()'))
     .then(() => {
-      t.match(cli.output, /run, restart, r\s+/m);
+      t.match(cli.output, /^Type help/m);
     })
     .then(() => cli.quit())
     .then(null, onFatal);

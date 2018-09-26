@@ -53,8 +53,7 @@ test('run after quit / restart', (t) => {
         // Eventually that should be figured out but for now we don't want
         // to fail builds because of it.
         t.match(cli.output, /#1 [^\n]+three-lines\.js\$?:2/);
-
-          t.match(cli.output, /#2 [^\n]+three-lines\.js\$?:3/);
+        t.match(cli.output, /#2 [^\n]+three-lines\.js\$?:3/);
       } else {
         t.match(cli.output, `#1 ${script}:3`);
       }
