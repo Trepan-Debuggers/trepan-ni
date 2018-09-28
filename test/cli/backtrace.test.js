@@ -16,8 +16,8 @@ test('display and navigate backtrace', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.stepCommand('c'))
-    .then(() => cli.command('bt'))
+    .then(() => cli.stepCommand('c()'))
+    .then(() => cli.command('bt()'))
     .then(() => {
       t.match(cli.output, `-> 0 topFn ${script}:7:2`);
     })

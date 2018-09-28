@@ -108,14 +108,14 @@ test('run after quit / restart', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.stepCommand('n'))
+    .then(() => cli.stepCommand('n()'))
     .then(() => {
       t.match(
         cli.output,
         `break in ${script}:2`,
         'steps to the 2nd line');
     })
-    .then(() => cli.command('cont'))
+    .then(() => cli.command('cont()'))
     .then(() => cli.waitFor(/disconnect/))
     .then(() => {
       t.match(
@@ -125,14 +125,14 @@ test('run after quit / restart', (t) => {
     })
     .then(() => {
       // On windows the socket won't close by itself
-      return cli.command('kill');
+      return cli.command('kill()');
     })
-    .then(() => cli.command('cont'))
+    .then(() => cli.command('cont()'))
     .then(() => cli.waitFor(/start the app/))
     .then(() => {
       t.match(cli.output, 'Use `run` to start the app again');
     })
-    .then(() => cli.stepCommand('run'))
+    .then(() => cli.stepCommand('run()'))
     .then(() => cli.waitForInitialBreak())
     .then(() => cli.waitForPrompt())
     .then(() => {
@@ -141,14 +141,14 @@ test('run after quit / restart', (t) => {
         `break in ${script}:1`,
         'is back at the beginning');
     })
-    .then(() => cli.stepCommand('n'))
+    .then(() => cli.stepCommand('n()'))
     .then(() => {
       t.match(
         cli.output,
         `break in ${script}:2`,
         'steps to the 2nd line');
     })
-    .then(() => cli.stepCommand('restart'))
+    .then(() => cli.stepCommand('restart()'))
     .then(() => cli.waitForInitialBreak())
     .then(() => {
       t.match(
@@ -156,13 +156,13 @@ test('run after quit / restart', (t) => {
         `break in ${script}:1`,
         'is back at the beginning');
     })
-    .then(() => cli.command('kill'))
-    .then(() => cli.command('cont'))
+    .then(() => cli.command('kill()'))
+    .then(() => cli.command('cont()'))
     .then(() => cli.waitFor(/start the app/))
     .then(() => {
       t.match(cli.output, 'Use `run` to start the app again');
     })
-    .then(() => cli.stepCommand('run'))
+    .then(() => cli.stepCommand('run()'))
     .then(() => cli.waitForInitialBreak())
     .then(() => cli.waitForPrompt())
     .then(() => {
