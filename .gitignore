@@ -1,5 +1,6 @@
 *~
+/.python-version
+/.vs
+/tmp
 node_modules/
 npm-debug.log
-/tmp
-/.vs
