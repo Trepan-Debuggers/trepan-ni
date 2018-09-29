@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const Path = require('path');
 
@@ -10,14 +11,14 @@ test('display and navigate backtrace', (t) => {
   const cli = startCLI([script]);
 
   function onFatal(error) {
-    cli.quit();
+    cli.quit;
     throw error;
   }
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.stepCommand('c()'))
-    .then(() => cli.command('bt()'))
+    .then(() => cli.stepCommand('c'))
+    .then(() => cli.command('bt'))
     .then(() => {
       t.match(cli.output, `-> 0 topFn ${script}:7:2`);
     })

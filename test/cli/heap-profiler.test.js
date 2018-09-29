@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const { test } = require('tap');
 const { readFileSync, unlinkSync } = require('fs');
@@ -26,7 +27,7 @@ test('Heap profiler take snapshot', (t) => {
   // Check that the snapshot is valid JSON.
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('takeHeapSnapshot()'))
+    .then(() => cli.command('heapSnapshot()'))
     .then(() => JSON.parse(readFileSync(filename, 'utf8')))
     .then(() => cleanup())
     .then(() => cli.quit())
