@@ -16,6 +16,11 @@ debugger interface suite.
 $ npm install
 ```
 
+## Install from NPM
+```bash
+$ npm install trepan-ni
+```
+
 ## Run
 
 ```

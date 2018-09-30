@@ -1,31 +1,32 @@
+
 In contrast to *gdb*-like debuggers, debugger commands are given as
 JavaScript which is evaluated.
 
-For example, to list a source text starting at line 5, you should type:
+For example, to list a source text starting at line 5, you would
+most properly type:
 ```js
 list(5)
-```
-not:
-```
-list 5
 ```
 
 However to make this more like gdb, as syntactic sure we'll provide
 the surrounding parenthesis if we detect a command followed by some
-sort of space. So the above two are equivalent, with the latter
-getting transformed into the former.
+sort of space. So here we do allow
+
+```
+list 5
+```
 
 Note however that this trick doesn't work when you want to indicate
 several paramenters. Here you need to separate arguments and
 add commas, in between the parameters.
 
-For for command like `list` which may have 0, 1, or 2 arguments,
+For command like `list` which may have 0, 1, or 2 arguments,
 when you wanto use the 2-argument form use need to do it like this:
 ```js
 list(5, 2)
 ```
 
-and not lie
+and notL
 ```js
 list 5, 2  # wrong
 list 5 2   # wrong
@@ -48,7 +49,7 @@ string, and convert that to the official debugger command name:
 `setBreakpoint`. Likewise, a leading "continue" with a space or parenthesis is
 converted to the underlying debugger command name `cont`.
 
-There is some other string preprocessing done.
+Some other input string preprocessing that is done:
 
 If the debugger command string is the empty string, we will use the last
 debugger command entered.
