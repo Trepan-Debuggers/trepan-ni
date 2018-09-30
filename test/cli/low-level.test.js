@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const { test } = require('tap');
 
@@ -14,6 +15,7 @@ test('Debugger agent direct access', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
+    .then(() => cli.command('autoeval("js")'))
     .then(() => cli.command('scripts'))
     .then(() => {
       const [, scriptId] = cli.output.match(scriptPattern);

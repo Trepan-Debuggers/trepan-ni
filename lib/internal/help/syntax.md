@@ -1,0 +1,103 @@
+In contrast to *gdb*-like debuggers, debugger commands are given as
+JavaScript which is evaluated.
+
+For example, to list a source text starting at line 5, you should type:
+```js
+list(5)
+```
+not:
+```
+list 5
+```
+
+However to make this more like gdb, as syntactic sure we'll provide
+the surrounding parenthesis if we detect a command followed by some
+sort of space. So the above two are equivalent, with the latter
+getting transformed into the former.
+
+Note however that this trick doesn't work when you want to indicate
+several paramenters. Here you need to separate arguments and
+add commas, in between the parameters.
+
+For for command like `list` which may have 0, 1, or 2 arguments,
+when you wanto use the 2-argument form use need to do it like this:
+```js
+list(5, 2)
+```
+
+and not lie
+```js
+list 5, 2  # wrong
+list 5 2   # wrong
+```
+
+Although using JavaScript notation as debugger commands has some
+advantages, it is also is not without some drawbacks. The most notable
+hidden consequence is that some common *gdb* command names can't be
+used because they are JavaScript reserved words. Most notably:
+*continue*, *break*, and *eval*.
+
+But some of you may have noticed that you *can* type "break" at a
+debugger prompt and that peforms the gdb command to set a breakpoint.
+
+So let me explain...
+
+There is also an *alias* command. And that does string munging on the line
+entered *before* evaluation. So I can catch a *leading* "break"
+string, and convert that to the official debugger command name:
+`setBreakpoint`. Likewise, a leading "continue" with a space or parenthesis is
+converted to the underlying debugger command name `cont`.
+
+There is some other string preprocessing done.
+
+If the debugger command string is the empty string, we will use the last
+debugger command entered.
+
+If the debugger command takes no arguments, and it is a function rather than
+a property, in JavaScript you'd need to supply the empty parenthesis, `()`. We
+can detect that and provide the parenthesis here too.
+
+Auto Evaluation
+---------------
+
+One of the annoying things in debugger command-line interfaces is the
+extra verbiage used to evaluate an expression in the context of the
+debugged program. But this is done a lot. And with JavaScript
+notation, this becomes more awkward. For example `exec("a+b")` rather
+than simply typing `a+b`. Yes, we allow omitting the parenthesis so
+`exec "a+b"` is possible. (And note "eval" is an alias for "exec").
+
+But still this is to much. Therefore there is a mode called
+"autoeval" which can simplify this situation.
+
+When set (and it is set by default), if the first word in input is not
+a known debugger command it will treat the line as something to be
+evaluated in the debugger context.
+
+This however has a drawback. Suppose you simply mistype a debugger
+command? If that happens and autoeval is set on, we can't inform you
+of the mistyping. Suppose you type "ls" for "list". You'll get a message like:
+
+```
+ReferenceError: ls is not defined.
+    at eval (eval at <anonymous> (gcd.js:1:11), <anonymous>:1:1)
+    at Object.<anonymous> (ccd.js:1:11)
+    at Module._compile (module.js:649:14)
+    at Object.Module._extensions..js (module.js:663:10)
+    at Module.load (module.js:565:32)
+...
+```
+
+If however `autoeval` is off you will get the simple message:
+
+```
+Command "ls" not a debugger command.
+```
+
+Finally there is one more autoeval kind of setting, "js". This allows
+you to evaluate expresions in the context of the debugger, rather than
+the debugged program. Testing often uses this. There is a little bit
+of fluidity between debugging in the context of the debugger and in
+the context of the debugged program, because if you know the right
+function to call, you can direct the debugger to query the debugged
+program.
