@@ -3,45 +3,43 @@ In contrast to *gdb*-like debuggers, debugger commands are given as
 JavaScript which is evaluated.
 
 For example, to list a source text starting at line 5, you would
-most properly type:
+normally type:
 ```js
 list(5)
 ```
 
-However to make this more like gdb, as syntactic sure we'll provide
-the surrounding parenthesis if we detect a command followed by some
-sort of space. So here we do allow
+However to make this more like gdb, we provide a lot of syntactic sugar
+to make this essentially follow POSIX shell conventions _as well as_
+valid JavaScript notation.
+So
 
 ```
 list 5
 ```
-
-Note however that this trick doesn't work when you want to indicate
-several paramenters. Here you need to separate arguments and
-add commas, in between the parameters.
-
-For command like `list` which may have 0, 1, or 2 arguments,
-when you wanto use the 2-argument form use need to do it like this:
-```js
-list(5, 2)
+is the same thing as:
+```
+list(5)
 ```
 
-and notL
+Furthermore, we will add commas before intermediate spaces. So
+the following are all the same:
+
 ```js
-list 5, 2  # wrong
-list 5 2   # wrong
+list(5,2)
+list 5, 2
+list 5 2
 ```
 
-Although using JavaScript notation as debugger commands has some
-advantages, it is also is not without some drawbacks. The most notable
-hidden consequence is that some common *gdb* command names can't be
-used because they are JavaScript reserved words. Most notably:
-*continue*, *break*, and *eval*.
+Although using strict JavaScript notation as debugger commands has
+some advantages, it is also is not without some drawbacks. The most
+notable hidden consequence is that some common *gdb* command names
+can't be used because they are JavaScript reserved words. Most
+notably: *continue*, *break*, and *eval*.
 
 But some of you may have noticed that you *can* type "break" at a
 debugger prompt and that peforms the gdb command to set a breakpoint.
 
-So let me explain...
+So let me explain how that is done.
 
 There is also an *alias* command. And that does string munging on the line
 entered *before* evaluation. So I can catch a *leading* "break"

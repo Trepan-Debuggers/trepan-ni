@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const { test } = require('tap');
 
@@ -17,11 +18,11 @@ test('profiles', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('exec console.profile()'))
+    .then(() => cli.command('exec("console.profile()")'))
     .then(() => {
       t.match(cli.output, 'undefined');
     })
-    .then(() => cli.command('exec console.profileEnd()'))
+    .then(() => cli.command('exec("console.profileEnd()")'))
     .then(() => delay(250))
     .then(() => {
       t.match(cli.output, 'undefined');

@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const { test } = require('tap');
 
@@ -13,7 +14,7 @@ test('examples/alive.js', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('exec [typeof heartbeat, typeof process.exit]'))
+    .then(() => cli.command('exec("[typeof heartbeat, typeof process.exit]")'))
     .then(() => {
       t.match(cli.output, '[ \'function\', \'function\' ]', 'works w/o paren');
     })
@@ -54,7 +55,7 @@ test('examples/alive.js', (t) => {
     .then(null, onFatal);
 });
 
-test('exec .scope', (t) => {
+test('exec(".scope")', (t) => {
   const cli = startCLI(['examples/backtrace.js']);
 
   function onFatal(error) {
@@ -65,7 +66,7 @@ test('exec .scope', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.stepCommand('c'))
-    .then(() => cli.command('exec .scope'))
+    .then(() => cli.command('exec(".scope")'))
     .then(() => {
       t.match(
         cli.output,
