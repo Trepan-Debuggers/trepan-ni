@@ -48,7 +48,6 @@
   },
   "scripts": {
     "pretest": "eslint --rulesdir=tools/eslint-rules lib test",
-    "test": "tap test",
-    "posttest": "nlm verify"
+    "test": "tap test"
   }
 }
