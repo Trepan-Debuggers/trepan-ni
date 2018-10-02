@@ -1,5 +1,6 @@
 'use strict';
 const spawn = require('child_process').spawn;
+const TIMEOUT = process.env['TRAVIS'] ? 4000 : 2000;
 
 // This allows us to keep the helper inside of `test/` without tap warning
 // about "pending" test files.
@@ -52,7 +53,7 @@ function startCLI(args, flags = []) {
       return output;
     },
 
-    waitFor(pattern, timeout = 2000) {
+    waitFor(pattern, timeout = TIMEOUT) {
       function checkPattern(str) {
         if (Array.isArray(pattern)) {
           return pattern.every((p) => p.test(str));
@@ -94,11 +95,11 @@ function startCLI(args, flags = []) {
       });
     },
 
-    waitForPrompt(timeout = 2000) {
+    waitForPrompt(timeout = TIMEOUT) {
       return this.waitFor(/\(trepan-ni\)\s+$/, timeout);
     },
 
-    waitForInitialBreak(timeout = 2000) {
+    waitForInitialBreak(timeout = TIMEOUT) {
       return this.waitFor(/break (?:on start )?in/i, timeout)
         .then(() => {
           if (/Break on start/.test(this.output)) {
