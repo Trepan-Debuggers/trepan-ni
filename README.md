@@ -2,6 +2,8 @@
 
 A gdb-like debugger in the trepan debugger family.
 
+![trepan-ni example](img/trepan-ni-session.gif)
+
 This guts of this code is based on (and largely made up of) the nodejs
 "node inspect" debugger. However the command-line interface is being
 completely reworked.
