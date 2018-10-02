@@ -15,11 +15,11 @@
   "dependencies": {
     "consolehighlighter": "^0.1.5",
     "marked": "^0.3.17",
-    "marked-terminal": "^1.6.1"
+    "marked-terminal": "^1.6.1",
+    "ttystudio": "0.0.16"
   },
   "devDependencies": {
     "eslint": "^3.19.0",
-    "nlm": "^3.3.1",
     "tap": "^12.0.1"
   },
   "files": [
