@@ -1,6 +1,6 @@
 'use strict';
 const spawn = require('child_process').spawn;
-const TIMEOUT = process.env['TRAVIS'] ? 4000 : 2000;
+const TIMEOUT = 2000;
 
 // This allows us to keep the helper inside of `test/` without tap warning
 // about "pending" test files.

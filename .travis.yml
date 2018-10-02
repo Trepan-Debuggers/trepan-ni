@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '6.8'
+  - '8.10.0'
 before_deploy:
   - git config --global user.email "rb@dustyfeet.com"
   - git config --global user.name "Rocky Bernstein"
