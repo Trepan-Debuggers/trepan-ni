@@ -12,5 +12,7 @@ before_deploy:
 #     branch: master
 #     node: '6.8'
 
-script:
-- eslint --rulesdir=tools/eslint-rules lib test
+# Uses npm test by default.
+# If we only want linting...
+# script:
+# - eslint --rulesdir=tools/eslint-rules lib test
