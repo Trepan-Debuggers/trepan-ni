@@ -3,7 +3,7 @@
 
 #: Run lint and then tests
 check: lint
-	tap test
+	npx tap test
 
 #: same thing as "make check"
 test: check
