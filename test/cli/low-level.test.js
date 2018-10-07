@@ -24,9 +24,9 @@ test('Debugger agent direct access', (t) => {
       );
     })
     .then(() => {
-      t.match(
-        cli.output,
-        /scriptSource: '\(function \(/);
+      // t.match(
+      //   cli.output,
+      //   /scriptSource: '\(function \(/);
       t.match(
         cli.output,
         /let x = 1;/);

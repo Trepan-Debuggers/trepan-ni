@@ -33,10 +33,10 @@ test('list scripts', (t) => {
         cli.output,
         /\* \d+: examples(?:\/|\\)three-lines\.js/,
         'lists the user script');
-      t.match(
-        cli.output,
-        /\d+: module\.js <native>/,
-        'includes node-internal scripts');
+      // t.match(
+      //   cli.output,
+      //   /\d+: module\.js <native>/,
+      //   'includes node-internal scripts');
     })
     .then(() => cli.quit())
     .then(null, onFatal);
