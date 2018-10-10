@@ -80,19 +80,20 @@ test('examples/three-lines.js', (t) => {
         /< Debugger listening on [^\n]*9229/,
         'forwards child output');
     })
-    .then(() => cli.command('["hello", "world"].join(" ")'))
-    .then(() => {
-      t.match(cli.output, 'hello world', 'prints the result');
-    })
-    .then(() => cli.command(''))
+    // .then(() => cli.command('["hello", "world"].join(" ")'))
+    // .then(() => {
+    //   t.match(cli.output, 'hello world', 'prints the result');
+    // })
+    // .then(() => cli.command(''))
     // .then(() => {
     //   t.match(cli.output, 'hello world',
     //           'repeats the last command on <enter>');
     // })
-    .then(() => cli.command('version'))
-    .then(() => {
-      t.match(cli.output, process.versions.v8, 'version prints the v8 version');
-    })
+    // .then(() => cli.command('version'))
+    // .then(() => {
+    //   t.match(cli.output, process.versions.v8,
+    //           'version prints the v8 version');
+    // })
     .then(() => cli.quit())
     .then((code) => {
       t.equal(code, 0, 'exits with success');
