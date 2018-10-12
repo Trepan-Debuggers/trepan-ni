@@ -66,7 +66,7 @@ notation, this becomes more awkward. For example `exec("a+b")` rather
 than simply typing `a+b`. Yes, we allow omitting the parenthesis so
 `exec "a+b"` is possible. (And note "eval" is an alias for "exec").
 
-But still this is to much. Therefore there is a mode called
+But still this is too much. Therefore there is a mode called
 "autoeval" which can simplify this situation.
 
 When set (and it is set by default), if the first word in input is not
