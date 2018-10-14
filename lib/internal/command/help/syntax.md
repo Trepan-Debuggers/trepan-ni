@@ -12,19 +12,18 @@ However to make this more like gdb, we provide a lot of syntactic sugar
 to make this essentially follow POSIX shell conventions _as well as_
 valid JavaScript notation.
 So
-
 ```
 list 5
 ```
 is the same thing as:
-```
+```js
 list(5)
 ```
 
 Furthermore, we will add commas before intermediate spaces. So
 the following are all the same:
 
-```js
+```
 list(5,2)
 list 5, 2
 list 5 2
