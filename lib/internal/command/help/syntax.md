@@ -69,13 +69,19 @@ than simply typing `a+b`. Yes, we allow omitting the parenthesis so
 But still this is too much. Therefore there is a mode called
 "autoeval" which can simplify this situation.
 
-When set (and it is set by default), if the first word in input is not
-a known debugger command it will treat the line as something to be
-evaluated in the debugger context.
+When autoeval is set (and it is set by default), if the first word in
+input is not a known debugger command it will treat the line as
+something to be evaluated in the debugger context.
 
-This however has a drawback. Suppose you simply mistype a debugger
-command? If that happens and autoeval is set on, we can't inform you
-of the mistyping. Suppose you type "ls" for "list". You'll get a message like:
+We in effect surround the input `...` with `eval('...')`. Therefore,
+any strings inside should use double quotes `"`, not single quotes
+`'`.
+
+Aside from the string quoting problem mentioned above, there is
+another drawback. Suppose you simply mistype a debugger command? If
+that happens and autoeval is set on, we can't inform you of the
+mistyping. Suppose you type "ls" for "list". You'll get a message
+like:
 
 ```
 ReferenceError: ls is not defined.
