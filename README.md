@@ -6,7 +6,13 @@ A gdb-like debugger in the trepan debugger family.
 
 This guts of this code is based on (and largely made up of) the nodejs
 "node inspect" debugger. However the command-line interface is being
-completely reworked.
+expanded and completely reworked.
+
+For example, we include frame-changing _gdb_ commands like `up`,
+`down`, and `frame`.
+
+We also document better the in the help system command syntax, and
+what each does. See for example `help break`. and `help syntax`.
 
 For an Emacs interface into this debugger, see
 [realgud-trepan-ni](https://github.com/realgud/realgud-trepan-ni).
