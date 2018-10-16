@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const Path = require('path');
 
@@ -16,16 +17,16 @@ test('run after quit / restart', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     .then(() => {
       t.match(cli.output, 'No breakpoints yet');
     })
     .then(() => cli.command('sb(2)'))
     .then(() => cli.command('sb(3)'))
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     .then(() => {
-      t.match(cli.output, `#1 ${script}:2`);
-      t.match(cli.output, `#2 ${script}:3`);
+      t.match(cli.output, `#1\t${script}:2`);
+      t.match(cli.output, `#2\t${script}:3`);
     })
     .then(() => cli.stepCommand('c')) // hit line 2
     .then(() => cli.stepCommand('c')) // hit line 3
@@ -45,17 +46,17 @@ test('run after quit / restart', (t) => {
     .then(() => {
       t.match(cli.output, `break in ${script}:3`);
     })
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     .then(() => {
       if (process.platform === 'aix') {
         // TODO: There is a known issue on AIX where the breakpoints aren't
         // properly resolved yet when we reach this point.
         // Eventually that should be figured out but for now we don't want
         // to fail builds because of it.
-        t.match(cli.output, /#1 [^\n]+three-lines\.js\$?:2/);
-        t.match(cli.output, /#2 [^\n]+three-lines\.js\$?:3/);
+        t.match(cli.output, /#1\t[^\n]+three-lines\.js\$?:2/);
+        t.match(cli.output, /#2\t[^\n]+three-lines\.js\$?:3/);
       } else {
-        t.match(cli.output, `#1 ${script}:3`);
+        t.match(cli.output, `#1\t${script}:3`);
       }
     })
     .then(() => cli.quit())

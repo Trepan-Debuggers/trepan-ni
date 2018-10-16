@@ -67,10 +67,10 @@ test('stepping through breakpoints', (t) => {
     .then(() => cli.command('sb("otherFunction()")'))
     .then(() => cli.command('sb(16)'))
     .then(() => t.notMatch(cli.output, 'Could not resolve breakpoint'))
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     .then(() => {
-      t.match(cli.output, `#1 ${script}:6`);
-      t.match(cli.output, `#2 ${script}:16`);
+      t.match(cli.output, `#1\t${script}:6`);
+      t.match(cli.output, `#2\t${script}:16`);
     })
 
     .then(() => cli.command('list()'))
@@ -166,10 +166,10 @@ test('clearBreakpoint', (t) => {
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('sb("break.js", 3)'))
     .then(() => cli.command('sb("break.js", 9)'))
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     .then(() => {
       // t.match(cli.output, `#1 ${script}:3`);
-      t.match(cli.output, `#2 ${script}:9`);
+      t.match(cli.output, `#2\t${script}:9`);
     })
     .then(() => cli.command('clearBreakpoint("break.js", 4)'))
     .then(() => {
@@ -180,7 +180,7 @@ test('clearBreakpoint', (t) => {
       t.match(cli.output, 'Could not find breakpoint');
     })
     .then(() => cli.command('clearBreakpoint("break.js", 3)'))
-    .then(() => cli.command('breakpoints'))
+    .then(() => cli.command('info("breakpoints")'))
     // .then(() => {
     //   t.match(cli.output, `#1 ${script}:9`); }
     //})
