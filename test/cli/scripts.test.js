@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict';
 const Path = require('path');
 
@@ -16,22 +17,22 @@ test('list scripts', (t) => {
 
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
-    .then(() => cli.command('scripts'))
+    .then(() => cli.command('info("files")'))
     .then(() => {
       t.match(
         cli.output,
-        /^\* \d+: examples(?:\/|\\)three-lines\.js/,
+        /\*\s+\d+:\s+examples(?:\/|\\)three-lines\.js/,
         'lists the user script');
       t.notMatch(
         cli.output,
         /\d+: module\.js <native>/,
         'omits node-internal scripts');
     })
-    .then(() => cli.command('scripts(true)'))
+    .then(() => cli.command('info("files", true)'))
     .then(() => {
       t.match(
         cli.output,
-        /\* \d+: examples(?:\/|\\)three-lines\.js/,
+        /\*\s+\d+:\s+examples(?:\/|\\)three-lines\.js/,
         'lists the user script');
       // t.match(
       //   cli.output,

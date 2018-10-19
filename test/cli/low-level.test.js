@@ -6,7 +6,7 @@ const startCLI = require('./start-cli');
 
 test('Debugger agent direct access', (t) => {
   const cli = startCLI(['examples/three-lines.js']);
-  const scriptPattern = /^\* (\d+): examples(?:\/|\\)three-lines.js/;
+  const scriptPattern = /\*\s+(\d+):\s+examples(?:\/|\\)three-lines.js/;
 
   function onFatal(error) {
     cli.quit();
@@ -16,7 +16,7 @@ test('Debugger agent direct access', (t) => {
   return cli.waitForInitialBreak()
     .then(() => cli.waitForPrompt())
     .then(() => cli.command('set "autoeval" "js"'))
-    .then(() => cli.command('scripts'))
+    .then(() => cli.command('info("files")'))
     .then(() => {
       const [, scriptId] = cli.output.match(scriptPattern);
       return cli.command(
