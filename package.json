@@ -1,10 +1,10 @@
 {
   "name": "trepan-ni",
-  "version": "3.4.3",
+  "version": "3.4.4",
   "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
   "author": {
     "name": "Rocky Bernstein",
-    "email": "rb@dustyfeet.com"
+    "email": "rocky.bernstein@consensys.net"
   },
   "license": "MIT",
   "main": "lib/_inspect.js",
