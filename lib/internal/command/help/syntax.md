@@ -1,4 +1,3 @@
-
 In contrast to *gdb*-like debuggers, debugger commands are given as
 JavaScript which is evaluated.
 
@@ -27,6 +26,22 @@ the following are all the same:
 list(5,2)
 list 5, 2
 list 5 2
+```
+
+But note that when using string as a parameter, you still need to
+quote the string. Therefore in the "help" command use:
+
+```
+help '*'
+help "*"
+help "up"
+```
+
+rather than:
+
+```
+help *
+help up
 ```
 
 Although using strict JavaScript notation as debugger commands has

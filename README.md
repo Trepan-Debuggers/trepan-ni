@@ -12,7 +12,7 @@ For example, we include frame-changing _gdb_ commands like `up`,
 `down`, and `frame`.
 
 We also document better the in the help system command syntax, and
-what each does. See for example `help break`. and `help syntax`.
+what each does. See for example `help "break"`. and `help "syntax"`.
 
 For an Emacs interface into this debugger, see
 [realgud-trepan-ni](https://github.com/realgud/realgud-trepan-ni).
@@ -58,7 +58,7 @@ Debugger listening on ws://127.0.0.1:9229/c4f8676e-79dc-453a-8f2b-45d7af9d8327
 For help see https://nodejs.org/en/docs/inspector
 ```
 
-#in terminal 2:
+In terminal 2:
 ```console
 $ trepan-ni 127.0.0.1:9229
 connecting to 127.0.0.1:9229 ... ok(trepan-ni) pause
