@@ -6,6 +6,6 @@ break 40
 continue
 process.argv[2]
 show 'args'
-process.argv[2]=10
+process.argv[2] = 2
 c
 quit
