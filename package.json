@@ -1,6 +1,6 @@
 {
   "name": "trepan-ni",
-  "version": "3.4.4",
+  "version": "3.4.5",
   "description": "Trepan debugger for Node Inspect (and based on node inspect debugger)",
   "author": {
     "name": "Rocky Bernstein",
