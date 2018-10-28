@@ -1,0 +1,10 @@
+node --inspect sleep.js
+Ctrl-b o
+trepan-ni 127.0.0.1:9229
+pause
+j
+quit
+trepan-ni 127.0.0.1:9229
+pause
+j
+quit

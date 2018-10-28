@@ -1,0 +1,11 @@
+trepan-ni gcd.js 3 5
+help '*'
+help 'next'
+list 40
+break 40
+continue
+process.argv[2]
+show 'args'
+process.argv[2]=10
+c
+quit
