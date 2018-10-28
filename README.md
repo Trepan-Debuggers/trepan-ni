@@ -74,6 +74,8 @@ See also the help given by `node --help`, as many of those options are
 relevant and accepted.  Also note in particular the environment
 variables that can be used to influence execution.
 
+See ![the demos folder](https://github.com/rocky/trepan-ni/tree/master/demo) fr a demonstration of the above and possibly other demos.
+
 
 #### References
 
