@@ -12,7 +12,7 @@ test('launch CLI w/o args', (t) => {
     .then((code) => {
       t.equal(code, 1, 'exits with non-zero exit code');
       t.match(cli.output, /You need to give at least/,
-              'Prints usage error message');
+        'Prints usage error message');
     });
 });
 
@@ -28,7 +28,7 @@ test('launch w/ invalid host:port', (t) => {
     });
 });
 
-test('launch w/ unavailable port', async (t) => {
+test('launch w/ unavailable port', async(t) => {
   const blocker = createServer((socket) => socket.end());
   const port = await new Promise((resolve, reject) => {
     blocker.on('error', reject);

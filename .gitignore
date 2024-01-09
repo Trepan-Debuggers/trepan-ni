@@ -1,6 +1,9 @@
 *~
+.nyc_output/
 /.python-version
+/.tap
 /.vs
+/package-lock.json
 /tmp
 node_modules/
 npm-debug.log
