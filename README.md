@@ -30,6 +30,11 @@ $ npm install
 $ npm install trepan-ni
 ```
 
+## Install in Development Dode
+```bash
+$ npm link  # To unlink from project directory, run: npm unlink -g trepan-ni
+```
+
 ## Run
 
 ```
